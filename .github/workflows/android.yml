@@ -1,0 +1,38 @@
+name: Android CI build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build inrt template
+        run: |
+          chmod 777 ./gradlew
+          ./gradlew inrt:assembleTemplate
+          ls
+      - uses: Tlaster/android-sign@v1.2.2
+        name: Sign inrt APK
+        with:
+          releaseDirectory: |
+            inrt/build/outputs/apk/template/release
+          signingKeyBase64: ${{ secrets.ISIGNING_KEY }}
+          output: build/inrt/signed
+          alias: ${{ secrets.IALIAS }}
+          keyStorePassword: ${{ secrets.IKEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.IKEY_PASSWORD }}
+      - name: Build App
+        run: |
+          ls  build/inrt/signed
+          pwd
+          mv  build/inrt/signed/*.apk  app/src/main/assets/template.apk
+          ls  app/src/main/assets
+          ./gradlew app:assembleV6
+      - uses: Tlaster/android-sign@v1.2.2
+        name: Sign app APK
+        with:
+          releaseDirectory: |
+            app/build/outputs/apk/v6/release
+          signingKeyBase64: ${{ secrets.ASIGNING_KEY }}
+          output: build/app/signed
+          alias: ${{ secrets.AALIAS }}
+          keyStorePassword: ${{ secrets.AKEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.AKEY_PASSWORD }}

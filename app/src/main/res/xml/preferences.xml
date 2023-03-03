@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:widgetLayout="@layout/preference_custom">
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_custom"
+        android:widgetLayout="@layout/preference_custom">
+        <Preference
+            android:layout="@layout/preference_custom"
+            android:title="@string/text_about_me_and_repo" />
+        <Preference
+            android:layout="@layout/preference_custom"
+            android:title="@string/text_licenses" />
+        <Preference
+            android:layout="@layout/preference_custom"
+            android:title="@string/text_licenses_other" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

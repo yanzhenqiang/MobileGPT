@@ -1,0 +1,8 @@
+include ':app'
+include ':automator'
+include ':common'
+include ':autojs'
+include ':LocalRepo:libtermexec'
+include ':LocalRepo:emulatorview'
+include ':LocalRepo:term'
+include ':LocalRepo:OpenCV'
