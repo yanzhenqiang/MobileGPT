@@ -439,23 +439,13 @@
             android:multiprocess="true"
             android:taskAffinity="org.autojs.autojs.edit"
             android:theme="@style/EditorTheme" />
-        <activity android:name="org.autojs.autojs.ui.settings.AboutActivity_" />
         <activity
             android:name="org.autojs.autojs.external.tasker.TaskerScriptEditActivity_"
             android:configChanges="orientation|screenSize" />
         <activity android:name="org.autojs.autojs.ui.edit.ViewSampleActivity" />
         <activity android:name="org.autojs.autojs.ui.user.WebActivity_" />
-        <activity
-            android:name="org.autojs.autojs.ui.build.BuildActivity"
-            android:configChanges="orientation|screenSize" />
-        <activity android:name="org.autojs.autojs.ui.build.ProjectConfigActivity_" />
         <activity android:name="org.autojs.autojs.ui.log.LogActivityKt" />
-        <activity android:name="org.autojs.autojs.ui.shortcut.ShortcutIconSelectActivity_" />
         <activity android:name="org.autojs.autojs.ui.timing.TimedTaskSettingActivity_" />
-        <activity
-            android:name="org.autojs.autojs.ui.shortcut.ShortcutCreateActivity"
-            android:theme="@style/AppTheme.Transparent" />
-        
         <service android:name="org.autojs.autojs.external.foreground.ForegroundService" />
         <service android:name="org.autojs.autojs.external.ScriptExecutionIntentService" />
 

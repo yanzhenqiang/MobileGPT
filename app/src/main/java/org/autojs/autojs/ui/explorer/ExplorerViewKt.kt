@@ -300,8 +300,6 @@ open class ExplorerViewKt : ThemeColorSwipeRefreshLayout, OnRefreshListener,
                     .show()
                 notifyOperated()
             }
-            R.id.create_shortcut -> ScriptOperations(context, this, currentPage)
-                .createShortcut(selectedItem!!.toScriptFile())
             R.id.open_by_other_apps -> {
                 openByOtherApps(selectedItem!!.toScriptFile())
                 notifyOperated()

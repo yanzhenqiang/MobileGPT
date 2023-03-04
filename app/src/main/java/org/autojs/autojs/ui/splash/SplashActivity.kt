@@ -86,14 +86,6 @@ class SplashActivity : ComponentActivity() {
                         modifier = Modifier.size(120.dp),
                     )
                 }
-                Text(
-                    text = stringResource(id = R.string.powered_by_autojs),
-                    color = Color(0xdd000000),
-                    fontSize = 14.sp,
-                    modifier = Modifier
-                        .padding(12.dp)
-                        .align(Alignment.CenterHorizontally)
-                )
                 Spacer(
                     modifier = Modifier
                         .windowInsetsBottomHeight(WindowInsets.navigationBars)

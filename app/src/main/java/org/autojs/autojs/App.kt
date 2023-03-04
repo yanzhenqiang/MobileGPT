@@ -64,9 +64,6 @@ class App : MultiDexApplication() {
             )
         )
         AutoJs.initInstance(this)
-        if (Pref.isRunningVolumeControlEnabled()) {
-            GlobalKeyObserver.init()
-        }
         setupDrawableImageLoader()
         TimedTaskScheduler.init(this)
         initDynamicBroadcastReceivers()

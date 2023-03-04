@@ -7,9 +7,6 @@
         android:widgetLayout="@layout/preference_custom">
         <Preference
             android:layout="@layout/preference_custom"
-            android:title="@string/text_about_me_and_repo" />
-        <Preference
-            android:layout="@layout/preference_custom"
             android:title="@string/text_licenses" />
         <Preference
             android:layout="@layout/preference_custom"

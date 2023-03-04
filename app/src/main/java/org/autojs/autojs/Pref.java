@@ -49,10 +49,6 @@ public class Pref {
         return 0;
     }
 
-    public static boolean isRunningVolumeControlEnabled() {
-        return def().getBoolean(getString(R.string.key_use_volume_control_running), false);
-    }
-
     private static String getString(int id) {
         return GlobalAppContext.getString(id);
     }
@@ -84,14 +80,6 @@ public class Pref {
             return true;
         }
         return System.currentTimeMillis() - firstUsingMillis <= TimeUnit.DAYS.toMillis(1);
-    }
-
-    public static boolean isObservingKeyEnabled() {
-        return def().getBoolean(getString(R.string.key_enable_observe_key), false);
-    }
-
-    public static boolean isSingleBuildCleanModeEnabled() {
-        return def().getBoolean(getString(R.string.key_single_build_clean_mode), true);
     }
 
     public static String getDocumentationUrl() {

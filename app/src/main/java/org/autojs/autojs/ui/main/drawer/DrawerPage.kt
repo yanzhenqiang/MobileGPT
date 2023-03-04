@@ -77,9 +77,7 @@ fun DrawerPage() {
             }
             AccessibilityServiceSwitch()
             NotificationUsageRightSwitch()
-            ForegroundServiceSwitch()
             FloatingWindowSwitch()
-            VolumeDownControlSwitch()
             ConnectComputerSwitch()
         }
         Spacer(
@@ -250,16 +248,6 @@ private fun getUrl(host: String): String {
 }
 
 @Composable
-private fun VolumeDownControlSwitch() {
-    val context = LocalContext.current
-    var enable by remember {
-        val default = PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(context.getString(R.string.key_use_volume_control_record), false)
-        mutableStateOf(default)
-    }
-}
-
-@Composable
 private fun FloatingWindowSwitch() {
     val context = LocalContext.current
 
@@ -291,38 +279,6 @@ private fun FloatingWindowSwitch() {
             }
             isFloatingWindowShowing = FloatyWindowManger.isCircularMenuShowing()
             Pref.setFloatingMenuShown(isFloatingWindowShowing)
-        }
-    )
-}
-
-@Composable
-private fun ForegroundServiceSwitch() {
-    val context = LocalContext.current
-    var isOpenForegroundServices by remember {
-        val default = PreferenceManager.getDefaultSharedPreferences(context)
-            .getBoolean(context.getString(R.string.key_foreground_servie), false)
-        mutableStateOf(default)
-    }
-    SwitchItem(
-        icon = {
-            MyIcon(
-                Icons.Default.Settings,
-                contentDescription = null
-            )
-        },
-        text = { Text(text = stringResource(id = R.string.text_foreground_service)) },
-        checked = isOpenForegroundServices,
-        onCheckedChange = {
-            if (it) {
-                ForegroundService.start(context)
-            } else {
-                ForegroundService.stop(context)
-            }
-            PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putBoolean(context.getString(R.string.key_foreground_servie), it)
-                .apply()
-            isOpenForegroundServices = it
         }
     )
 }

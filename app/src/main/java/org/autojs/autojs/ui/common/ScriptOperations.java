@@ -34,7 +34,6 @@ import org.autojs.autojs.model.sample.SampleFile;
 import org.autojs.autojs.model.script.ScriptFile;
 import org.autojs.autojs.model.script.Scripts;
 import org.autojs.autojs.ui.filechooser.FileChooserDialogBuilder;
-import org.autojs.autojs.ui.shortcut.ShortcutCreateActivity;
 import org.autojs.autojs.ui.timing.TimedTaskSettingActivity_;
 import org.autojs.autojs.theme.dialog.ThemeColorMaterialDialogBuilder;
 
@@ -279,11 +278,6 @@ public class ScriptOperations {
 
     private void notifyFileChanged(ScriptFile directory, ExplorerFileItem oldItem, ExplorerFileItem newItem) {
         mExplorer.notifyItemChanged(oldItem, newItem);
-    }
-
-    public void createShortcut(ScriptFile file) {
-        mContext.startActivity(new Intent(mContext, ShortcutCreateActivity.class)
-                .putExtra(ShortcutCreateActivity.EXTRA_FILE, file));
     }
 
     public void delete(final ScriptFile scriptFile) {
